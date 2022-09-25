@@ -16,11 +16,11 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 ```csharp
 [ApiController]
 [Route("[controller]")]
-public class Controller : ControllerBase
+public class ProductController : ControllerBase
 {
     private readonly IProductRepository _repository;
 
-    public WithoutCacheController(IProductRepository repository)
+    public ProductController(IProductRepository repository)
      => _repository = repository;
 
     [HttpGet]
@@ -63,11 +63,11 @@ builder.Services.AddScoped<IProductCache, ProductCache>();
 ```csharp
 [ApiController]
 [Route("[controller]")]
-public class Controller : ControllerBase
+public class ProductController : ControllerBase
 {
     private readonly IProductCache _cache;
 
-    public Controller(IProductCache cache)
+    public ProductController(IProductCache cache)
      => _cache = cache;
 
     [HttpGet]
@@ -148,11 +148,11 @@ app.UseOutputCache();
 ```csharp
 [ApiController]
 [Route("[controller]")]
-public class Controller : ControllerBase
+public class ProductController : ControllerBase
 {
     private readonly IProductRepository _repository;
 
-    public Controller(IProductRepository repository)
+    public ProductController(IProductRepository repository)
      => _repository = repository;
 
     [HttpGet]
