@@ -67,7 +67,7 @@ public class Controller : ControllerBase
 {
     private readonly IProductCache _cache;
 
-    public WithoutCacheController(IProductCache cache)
+    public Controller(IProductCache cache)
      => _cache = cache;
 
     [HttpGet]
@@ -152,10 +152,11 @@ public class Controller : ControllerBase
 {
     private readonly IProductRepository _repository;
 
-    public WithoutCacheController(IProductRepository repository)
+    public Controller(IProductRepository repository)
      => _repository = repository;
 
     [HttpGet]
+    [OutputCache]
     public IActionResult Get()
         => Ok(_repository.Get());
 }
